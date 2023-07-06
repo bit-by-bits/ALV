@@ -1,0 +1,38 @@
+.wrapper {
+  width: 100vw;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.red {
+  gap: 5px;
+  padding: 30px 0;
+  font-size: 1.4rem;
+  background-color: #a31521;
+}
+
+.red * {
+  color: white;
+}
+
+.left {
+  background-image: url("https://static.spotapps.co/web/americanalasvegas--com/custom/about_us_left_1.jpg");
+}
+
+.left,
+.right {
+  width: 50vw;
+}
+
+.right {
+  background-color: #ddedfa;
+  padding: 60px 8%;
+}
