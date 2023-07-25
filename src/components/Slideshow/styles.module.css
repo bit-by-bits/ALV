@@ -67,6 +67,7 @@
 }
 
 .controls {
+  transition: all 0.6 ease;
   left: calc(100vw - 40px);
   background-color: transparent;
   outline: none;
