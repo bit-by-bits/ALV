@@ -23,15 +23,5 @@ module.exports = {
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `Americana Restaurant - Las Vegas, NV`,
-        short_name: `Americana`,
-        start_url: `/`,
-        display: `minimal-ui`,
-        icon: "https://static.spotapps.co/web/americanalasvegas--com/favicon-32x32.png",
-      },
-    },
   ],
 }
