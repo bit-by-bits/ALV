@@ -18,12 +18,55 @@ body {
   width: 100%;
 }
 
+.ant-image .ant-image-mask {
+  display: none;
+}
+
+.ant-carousel .slick-dots li button {
+  background-color: transparent;
+  border: 1px solid #a31521;
+  opacity: 1;
+  outline: 0;
+  background: white;
+  width: 15px !important;
+  height: 15px !important;
+  margin: 5px 15px;
+  padding: 0;
+  border-radius: 50%;
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+.ant-carousel .slick-dots li ,
+.ant-carousel .slick-dots li.slick-active {
+  width: 18px;
+}
+
+.ss .slick-dots li button {
+  background-color: transparent;
+  border: 1px solid #fff;
+  width: 20px !important;
+  height: 20px !important;
+  background: rgba(50, 50, 50, 0.1);
+  transition: all 0.2s ease-in-out;
+  transform: translateY(-40px);
+}
+
+.ant-carousel .slick-dots li.slick-active button {
+  background-color: #a31521;
+}
+
+.ss .slick-dots li.slick-active button {
+  background-color: #fff;
+}
+
 .ant-select-selector {
   height: 100% !important;
   border-radius: 0 !important;
 }
 
-.ant-select-single.ant-select-show-arrow .ant-select-selection-item {
+.ant-select-single.ant-select-show-arrow .ant-select-selection-item,
+.ant-select-single.ant-select-show-arrow .ant-select-selection-placeholder {
   display: flex;
   align-items: center;
 }

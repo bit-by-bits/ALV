@@ -20,6 +20,7 @@
   left: 0;
   z-index: 2;
   position: absolute;
+  width: 100vw !important;
 }
 
 .top {
@@ -68,17 +69,48 @@
 
 .controls {
   transition: all 0.6 ease;
-  left: calc(100vw - 40px);
   background-color: transparent;
   outline: none;
   appearance: none;
   border: 0;
   transform: translate(-100%, 0);
   bottom: 40px;
-  width: max-content;
+  left: calc(100vw - 40px);
+  width: max-content !important;
 }
 
 .control {
   font-size: 30px !important;
   color: white;
+}
+
+@media screen and (max-width: 767px) {
+  .rel,
+  .img,
+  .cover {
+    height: 80vh;
+  }
+
+  .controls {
+    left: calc(100vw - 30px);
+    bottom: 30px;
+  }
+
+  .control {
+    font-size: 20px !important;
+  }
+
+  .button {
+    padding: 7px 30px;
+    font-size: 14px;
+  }
+
+  .heading {
+    text-align: center;
+    font-size: 2.4rem;
+  }
+
+  .img {
+    object-fit: cover;
+  }
 }

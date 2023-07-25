@@ -12,6 +12,9 @@ import Hero from "../components/Hero"
 import About from "../components/About"
 import Slideshow from "../components/Slideshow"
 import Booking from "../components/Booking"
+import Collage from "../components/Collage"
+import Reviews from "../components/Reviews"
+import Newsletter from "../components/Newsletter"
 
 const IndexPage = () => (
   <Layout>
@@ -19,6 +22,9 @@ const IndexPage = () => (
     <About />
     <Slideshow />
     <Booking />
+    <Collage />
+    <Reviews />
+    <Newsletter />
   </Layout>
 )
 

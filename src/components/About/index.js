@@ -4,6 +4,7 @@ import * as styles from "./styles.module.css"
 
 // Plugins and Modules
 import { StaticImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 
 // Components and Utils
 
@@ -11,10 +12,10 @@ const About = () => {
   return (
     <section className={styles.wrapper}>
       <div className={`${styles.flex} ${styles.red}`}>
-        <a href="#map">
+        <Link href="/#map">
           <i class="fa fa-map-marker" />
           <span class="off-screen">map marker pin</span>
-        </a>
+        </Link>
         <span>2620 Regatta Drive, Las Vegas, NV 89128</span>
       </div>
 
@@ -24,7 +25,7 @@ const About = () => {
           src="../../images/red.svg"
           alt=""
         />
-        <div className={styles.flex}>
+        <div className={`${styles.cover} ${styles.flex}`}>
           <StaticImage
             alt=""
             className={styles.left}
@@ -66,19 +67,22 @@ const About = () => {
             "https://tmt.spotapps.co/private-parties?spot_id=77510&callback_url=http://americanalasvegas.com/",
           ],
         ].map((item, idx) => (
-          <div className={styles.flex} key={idx}>
-            {idx && <img className={styles.leftt} src={item[0]} alt="" />}
+          <div
+            className={`${styles.cover} ${styles.flex}`}
+            key={idx}
+            style={{ flexDirection: idx % 2 === 0 ? "row" : "row-reverse" }}
+          >
+            <img className={styles.leftt} src={item[0]} alt="" />
             <div className={`${styles.flex} ${styles.column} ${styles.rightt}`}>
               <h1 className={styles.heading}>{item[1]}</h1>
               <h2 className={styles.subheading}>{item[2]}</h2>
               <div className={styles.body}>{item[3]}</div>
-              <a href={item[4]} target="_blank">
+              <a href={item[4]} target="_blank" rel="noreferrer">
                 <button className={`${styles.invert} ${styles.button}`}>
                   {item[1]}
                 </button>
               </a>
             </div>
-            {!idx && <img className={styles.leftt} src={item[0]} alt="" />}
           </div>
         ))}
       </div>

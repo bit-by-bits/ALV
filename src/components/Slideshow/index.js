@@ -24,7 +24,7 @@ const Slideshow = () => {
           src="../../images/white.svg"
           alt=""
         />
-        <Carousel autoplaySpeed={4000} autoplay={auto}>
+        <Carousel className="ss" autoplaySpeed={4000} autoplay={auto}>
           {[
             [
               "https://res.cloudinary.com/spothopper/image/fetch/f_auto,q_70,c_fit,h_864/http://static.spotapps.co/spots/2c/a177c9479648c99cc3cdc58d5cc96d/:original",

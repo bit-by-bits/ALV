@@ -1,14 +1,16 @@
 // React and Styles
-import React, { useState } from "react"
+import React from "react"
 import * as styles from "./styles.module.css"
-import { DatePicker, Modal, Select, TimePicker } from "antd"
 
 // Plugins and Modules
+import { DatePicker, Select, TimePicker, message } from "antd"
 
 // Components and Utils
 
 const Booking = () => {
-  const [modal, setModal] = useState(false)
+  const OPTIONS = Array(10)
+    ?.fill(" people")
+    ?.map((e, i) => ({ label: i + e, value: i + 1 }))
 
   return (
     <section className={`${styles.flex} ${styles.column} ${styles.wrapper}`}>
@@ -20,26 +22,19 @@ const Booking = () => {
       </h1>
       <div className={`${styles.choices} ${styles.flex}`}>
         <Select
-          defaultValue="1"
           className={styles.choice}
-          options={Array(10)
-            .fill(" people")
-            .map((e, i) => ({ label: i + e, value: i + 1 }))}
+          options={OPTIONS}
+          placeholder="People"
         />
         <DatePicker className={styles.choice} />
         <TimePicker className={styles.choice} />
-        <button className={styles.button} onClick={() => setModal(true)}>
+        <button
+          className={styles.button}
+          onClick={() => message.success("Thank you for booking a table!")}
+        >
           Find a Table
         </button>
       </div>
-      <Modal
-        open={modal}
-        title="Basic Modal"
-        onOk={() => {}}
-        onCancel={() => setModal(false)}
-      >
-        <p>Some contents...</p>
-      </Modal>
     </section>
   )
 }

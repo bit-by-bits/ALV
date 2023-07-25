@@ -36,6 +36,7 @@
   left: 0;
   z-index: 2;
   position: absolute;
+  width: 100vw !important;
 }
 
 .top {
@@ -56,7 +57,7 @@
   height: 35vw;
 }
 
-.leftt{
+.leftt {
   width: 40vw;
 }
 
@@ -132,4 +133,75 @@
 .invert:hover {
   background-color: #002e48;
   border: 2px solid #002e48;
+}
+
+@media screen and (min-width: 1500px) {
+  .right {
+    gap: 4rem;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .right,
+  .left {
+    height: 50vw;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .heading {
+    font-size: 3rem;
+  }
+
+  .subheading {
+    font-size: 1.2rem;
+  }
+
+  .body {
+    font-size: 0.9rem;
+    margin: -1rem 0 1rem 0;
+  }
+
+  .button {
+    scale: 0.8;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .red {
+    font-size: 1.1rem;
+    flex-direction: column;
+  }
+
+  .about {
+    padding: 0;
+  }
+
+  .left,
+  .leftt,
+  .right,
+  .rightt {
+    width: 100vw;
+    height: 60vw;
+  }
+
+  .right,
+  .rightt {
+    height: max-content;
+    padding: 30px 40px;
+  }
+
+  .heading {
+    margin: 10px 0;
+  }
+
+  .cover {
+    flex-direction: column !important;
+  }
+
+  .button {
+    padding: 7px 30px;
+    font-size: 14px;
+  }
 }
