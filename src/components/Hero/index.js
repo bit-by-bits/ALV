@@ -10,10 +10,10 @@ const Hero = () => {
   return (
     <section className={styles.wrapper}>
       <video
-        loop="loop"
-        muted="muted"
-        autoplay="autoplay"
-        playsinline="playsinline"
+        loop
+        muted
+        autoPlay
+        playsInline
         className={styles.main}
         poster="https://static.spotapps.co/web/americanalasvegas--com/custom/video_poster.jpg"
       >

@@ -1,5 +1,10 @@
 .wrapper {
   width: 100vw;
+  background-image: url(https://static.spotapps.co/web/americanalasvegas--com/custom/about_us_back.jpg);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .flex {
@@ -13,7 +18,7 @@
 }
 
 .red {
-  gap: 5px;
+  gap: 10px;
   padding: 30px 0;
   font-size: 1.4rem;
   background-color: #a31521;
@@ -23,6 +28,24 @@
   color: white;
 }
 
+.rel {
+  position: relative;
+}
+
+.abs {
+  left: 0;
+  z-index: 2;
+  position: absolute;
+}
+
+.top {
+  top: 0;
+}
+
+.btm {
+  bottom: 0;
+}
+
 .left {
   background-image: url("https://static.spotapps.co/web/americanalasvegas--com/custom/about_us_left_1.jpg");
 }
@@ -30,9 +53,83 @@
 .left,
 .right {
   width: 50vw;
+  height: 35vw;
+}
+
+.leftt{
+  width: 40vw;
+}
+
+.rightt {
+  width: 60vw;
+  padding: 0 20px;
+}
+
+.about {
+  gap: 60px;
+  display: flex;
+  flex-direction: column;
+  padding: 60px;
 }
 
 .right {
   background-color: #ddedfa;
-  padding: 60px 8%;
+  justify-content: space-between;
+  padding: 60px;
+}
+
+.heading {
+  font-size: 4rem;
+  font-family: "DM Serif Display", serif;
+}
+
+.heading:after {
+  background-image: url("https://static.spotapps.co/web/americanalasvegas--com/custom/title_decoration.png");
+  content: "";
+  display: block;
+  position: relative;
+  width: auto;
+  height: 30px;
+  margin: 15px auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.subheading {
+  transform: translateY(-2rem);
+  font-family: "Parisienne", cursive;
+  color: #002e48;
+}
+
+.body {
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.button {
+  background-color: #002e48;
+  border: 2px solid #002e48;
+  transition: all 0.3s ease;
+  padding: 10px 40px;
+  font-family: "DM Serif Display", serif;
+  font-size: 18px;
+  color: #fff;
+}
+
+.button:hover {
+  background-color: #a31521;
+  border: 2px solid #a31521;
+}
+
+.invert {
+  margin-top: 1rem;
+  padding: 8px 30px;
+  background-color: #a31521;
+  border: 2px solid #a31521;
+}
+
+.invert:hover {
+  background-color: #002e48;
+  border: 2px solid #002e48;
 }
