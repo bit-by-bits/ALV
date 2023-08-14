@@ -1,11 +1,11 @@
 // React and Styles
-import React from "react"
+import React from "react";
 
 // Plugins and Modules
-import { Script } from "gatsby"
+import { Script } from "gatsby";
 
 // Components and Utils
-import useSiteMetadata from "../hooks/useSiteMetaData"
+import useSiteMetadata from "../hooks/useSiteMetaData";
 
 const Meta = ({ title, description, pathname, children }) => {
   const {
@@ -14,7 +14,7 @@ const Meta = ({ title, description, pathname, children }) => {
     url,
     siteUrl,
     image,
-  } = useSiteMetadata()
+  } = useSiteMetadata();
 
   const SEO = {
     title: title || defaultTitle,
@@ -22,12 +22,12 @@ const Meta = ({ title, description, pathname, children }) => {
     image: `${url}${image}`,
     url: `${url}${pathname || ``}`,
     siteUrl: siteUrl,
-  }
+  };
 
   return (
-    <head>
-      <meta charset="utf-8" />
-      <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <>
+      <meta charSet="utf-8" />
+      <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
       <meta content="width=device-width, initial-scale=1" name="viewport" />
 
       <meta content={SEO.title} name="title" />
@@ -143,8 +143,8 @@ const Meta = ({ title, description, pathname, children }) => {
 
       {/* Other Tags */}
       {children}
-    </head>
-  )
-}
+    </>
+  );
+};
 
-export default Meta
+export default Meta;

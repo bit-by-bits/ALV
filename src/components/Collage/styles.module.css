@@ -38,8 +38,19 @@
 }
 
 .container {
-  cursor: pointer;
   overflow: hidden;
+  position: relative;
+  cursor: url(https://cdn.custom-cursor.com/db/17667/32/web-media-chick-fil-a-pointer.png),
+    pointer;
+}
+
+.shadow {
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+  position: absolute;
   box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.4);
 }
 

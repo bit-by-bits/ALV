@@ -1,7 +1,7 @@
 // React and Styles
 
 // Plugins and Modules
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby";
 
 // Components and Utils
 
@@ -18,9 +18,9 @@ const useSiteMetaData = () => {
         }
       }
     }
-  `)
+  `);
 
-  return data.site.siteMetadata
-}
+  return data.site.siteMetadata;
+};
 
-export default useSiteMetaData
+export default useSiteMetaData;

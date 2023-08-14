@@ -1,16 +1,16 @@
 // React and Styles
-import React, { useState } from "react"
-import * as styles from "./styles.module.css"
+import React, { useState } from "react";
+import * as styles from "./styles.module.css";
 
 // Plugins and Modules
-import { Carousel } from "antd"
-import { StaticImage } from "gatsby-plugin-image"
+import { Carousel } from "antd";
+import { StaticImage } from "gatsby-plugin-image";
 
 // Components and Utils
 
 const Slideshow = () => {
-  const [vis, setVis] = useState(false)
-  const [auto, setAuto] = useState(true)
+  const [vis, setVis] = useState(false);
+  const [auto, setAuto] = useState(true);
 
   return (
     <section className={styles.wrapper}>
@@ -59,7 +59,7 @@ const Slideshow = () => {
               />
               <div className={`${styles.abs} ${styles.cover}`} />
               <h1 className={styles.heading}>{item[1]}</h1>
-              <a href={item[2]} target="_blank">
+              <a href={item[2]} target="_blank" rel="noreferrer">
                 <button className={styles.button}>{item[3]}</button>
               </a>
             </div>
@@ -79,7 +79,7 @@ const Slideshow = () => {
         />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Slideshow
+export default Slideshow;

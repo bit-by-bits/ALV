@@ -5,9 +5,6 @@
   position: fixed;
   width: 100vw;
   z-index: 100;
-  background-color: white;
-  background-color: #fff;
-  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.4);
 }
 
 .left {
@@ -22,11 +19,27 @@
 }
 
 .link {
-  color: #002e48;
-  font-family: "DM Serif Display", serif;
   font-size: 16px;
-  transition: all 0.3s ease-in-out;
+  font-family: "DM Serif Display", serif;
   animation: fadeIn 2s ease-in-out;
+  transition: color 0.3s ease-in-out;
+  color: white;
+  text-shadow: 1px 1px 1px #000000;
+}
+
+.slink {
+  color: #002e48;
+  text-shadow: none;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.llink {
+  padding-left: 1rem;
+  border-left: 1px solid white;
+}
+
+.slink.llink {
+  border-color: #a31521;
 }
 
 .link i {

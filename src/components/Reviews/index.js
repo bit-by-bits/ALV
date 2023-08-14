@@ -1,17 +1,27 @@
 // React and Styles
-import React, { useState } from "react"
-import * as styles from "./styles.module.css"
+import React from "react";
+import * as styles from "./styles.module.css";
 
 // Plugins and Modules
-import { Carousel } from "antd"
+import { Carousel } from "antd";
+import { motion } from "framer-motion";
 
 // Components and Utils
 
 const Reviews = () => {
+  const { h1: Mone, div: Mdiv } = motion;
+
+  const variants = prevX => ({
+    initial: { opacity: 0, x: prevX },
+    whileInView: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  });
+
   return (
     <section className={`${styles.flex} ${styles.wrapper}`}>
-      <h1 className={styles.heading}>REVIEWS</h1>
-      <Carousel autoplaySpeed={8000} autoplay>
+      <Mone {...variants(-100)} className={styles.heading}>
+        REVIEWS
+      </Mone>
+      <Carousel autoplaySpeed={4000} autoplay>
         {[
           [
             "Nikole T:",
@@ -34,26 +44,30 @@ const Reviews = () => {
             "Wonderful and beautiful to have Sunday brunch here! It is by the lake and the ambient is just so relaxing! Food was excellent! The salad was so fresh and crispy. The dressing was just mixed to perfect. And the main dish of pasta and salmon was so tender and juicy.",
           ],
         ].map(([name, review], idx) => (
-          <div className={`${styles.box} ${styles.flex}`} key={idx}>
+          <Mdiv
+            {...variants(100)}
+            className={`${styles.box} ${styles.flex}`}
+            key={idx}
+          >
             <h2 className={styles.subheading}>Review by - Yelp</h2>
             <div className={styles.stars}>
               {name}
               {Array.from({ length: Math.floor(Math.random() * 3) + 3 })
                 ?.fill(0)
                 ?.map((_, i) => (
-                  <i key={i} aria-hidden="true" class="fa fa-star" />
+                  <i key={i} aria-hidden="true" className="fa fa-star" />
                 ))}
             </div>
             <div className={styles.review}>
-              <i aria-hidden="true" class="fa fa-quote-left" />
+              <i aria-hidden="true" className="fa fa-quote-left" />
               <div className={styles.body}>{review}</div>
-              <i aria-hidden="true" class="fa fa-quote-right" />
+              <i aria-hidden="true" className="fa fa-quote-right" />
             </div>
-          </div>
+          </Mdiv>
         ))}
       </Carousel>
     </section>
-  )
-}
+  );
+};
 
-export default Reviews
+export default Reviews;

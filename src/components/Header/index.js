@@ -1,24 +1,36 @@
 // React and Styles
-import React from "react"
-import * as styles from "./styles.module.css"
+import React, { useEffect } from "react";
+import * as styles from "./styles.module.css";
 
 // Plugins and Modules
-import { StaticImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
+import { Link } from "gatsby";
+import { motion, useAnimation } from "framer-motion";
+import { StaticImage } from "gatsby-plugin-image";
 
 // Components and Utils
 
-const Header = () => {
+const Header = ({ nav }) => {
+  const controls = useAnimation();
+  const { section: Msec, a: Manc } = motion;
+
+  useEffect(() => {
+    const alpha = nav ? 1 : 0;
+    controls.start({
+      backgroundColor: `rgba(255, 255, 255, ${alpha})`,
+      boxShadow: `0px 2px 5px 0px rgba(0, 0, 0, ${alpha})`,
+    });
+  }, [nav, controls]);
+
   return (
-    <section className={`${styles.flex} ${styles.wrapper}`}>
-      <Link href="/">
+    <Msec className={`${styles.flex} ${styles.wrapper}`} animate={controls}>
+      <Link to="/">
         <StaticImage
           alt="Americana"
           className={styles.left}
-          src="https://static.spotapps.co/web/americanalasvegas--com/custom/logo.png"
+          src="../../images/logo.png"
         />
       </Link>
-      <div className={`${styles.flex} ${styles.right}`}>
+      <div className={styles.flex}>
         {[
           [
             "MENU",
@@ -49,36 +61,37 @@ const Header = () => {
             "https://tmt.spotapps.co/job-listings?spot_id=77510&callback_url=http://americanalasvegas.com/#",
           ],
         ].map(([text, link], i) => (
-          <a
+          <Manc
             key={i}
-            className={styles.link}
             href={link}
             target="_blank"
             rel="noreferrer"
+            whileHover={{ scale: 1.1, transition: { duration: 0.05 } }}
+            className={`${nav ? styles.slink : ""} ${styles.link}`}
           >
             {text}
-          </a>
+          </Manc>
         ))}
         {[
           ["https://www.instagram.com/americanalv", "instagram"],
           ["https://www.yelp.com/biz/americana-las-vegas-2", "yelp"],
         ].map(([href, icon], i) => (
-          <a
+          <Manc
+            key={i}
             href={href}
             target="_blank"
-            key={i}
-            className={styles.link}
-            style={{
-              borderLeft: i ? 0 : "1px solid #a31521",
-              paddingLeft: i ? 0 : "1rem",
-            }}
+            rel="noreferrer"
+            whileHover={{ scale: 1.1, transition: { duration: 0.05 } }}
+            className={`${nav ? styles.slink : ""} ${i ? "" : styles.llink} ${
+              styles.link
+            }`}
           >
-            <i class={`social-icon fa fa-${icon}`} />
-          </a>
+            <i className={`social-icon fa fa-${icon}`} />
+          </Manc>
         ))}
       </div>
-    </section>
-  )
-}
+    </Msec>
+  );
+};
 
-export default Header
+export default Header;

@@ -1,21 +1,40 @@
 // React and Styles
-import React, { useEffect, useState } from "react"
-import * as styles from "./styles.module.css"
+import React, { Fragment } from "react";
+import * as styles from "./styles.module.css";
 
 // Plugins and Modules
-import { Image } from "antd"
-import { StaticImage } from "gatsby-plugin-image"
+import { Image } from "antd";
+import { StaticImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
 
 // Components and Utils
 
 const Collage = () => {
+  const { div: Mdiv } = motion;
+
+  const variants = rand => ({
+    initial: {
+      x: rand * 10 + 10,
+      y: rand * 10 + 10,
+      scale: 1.1,
+      opacity: 0,
+    },
+    whileInView: {
+      x: 0,
+      y: 0,
+      scale: 1,
+      opacity: 1,
+      transition: { duration: 0.6 },
+    },
+  });
+
   return (
     <section className={styles.wrapper}>
       <div className={`${styles.flex} ${styles.rel}`}>
         <StaticImage
+          alt=""
           className={`${styles.top} ${styles.abs}`}
           src="../../images/blue.svg"
-          alt=""
         />
         <div className={styles.grid}>
           {[
@@ -34,20 +53,22 @@ const Collage = () => {
             "3a/dd629f431048caa6f40f088373d266",
             "f6/9a73a91e124755968e94d3692469c5",
           ]?.map((e, i) => {
-            const check = i % 7 === 0
+            const check = i % 7 === 0;
 
             return (
-              <>
-                <div
-                  key={i}
+              <Fragment key={i}>
+                <Mdiv
+                  {...variants(Math.random())}
                   className={`${styles.flex} ${styles.container} ${styles.mob}`}
                   style={{
-                    gridColumn: `span ${check ? 2 : 1}`,
                     gridRow: `span 1`,
+                    gridColumn: `span ${check ? 2 : 1}`,
                   }}
                 >
+                  <div className={styles.shadow} />
                   <Image
                     alt=""
+                    preview={{ toolbarRender: () => null }}
                     className={styles.image}
                     src={`https://static.spotapps.co/spots/${e}/full`}
                     style={{
@@ -55,17 +76,19 @@ const Collage = () => {
                       height: check ? "66.67vh" : "33.33vh",
                     }}
                   />
-                </div>
-                <div
-                  key={i}
+                </Mdiv>
+                <Mdiv
+                  {...variants(Math.random())}
                   className={`${styles.flex} ${styles.container} ${styles.pc}`}
                   style={{
                     gridColumn: `span ${check ? 3 : 2}`,
                     gridRow: `span ${check ? 2 : 1}`,
                   }}
                 >
+                  <div className={styles.shadow} />
                   <Image
                     alt=""
+                    preview={{ toolbarRender: () => null }}
                     className={styles.image}
                     src={`https://static.spotapps.co/spots/${e}/full`}
                     style={{
@@ -73,9 +96,9 @@ const Collage = () => {
                       height: check ? "80vh" : "40vh",
                     }}
                   />
-                </div>
-              </>
-            )
+                </Mdiv>
+              </Fragment>
+            );
           })}
         </div>
         <StaticImage
@@ -85,7 +108,7 @@ const Collage = () => {
         />
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Collage
+export default Collage;

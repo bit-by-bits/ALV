@@ -1,14 +1,22 @@
 // React and Styles
-import React from "react"
-import * as styles from "./styles.module.css"
+import React from "react";
+import * as styles from "./styles.module.css";
 
 // Plugins and Modules
-import { StaticImage } from "gatsby-plugin-image"
-import { message } from "antd"
+import { motion } from "framer-motion";
+import { StaticImage } from "gatsby-plugin-image";
+import { message } from "antd";
 
 // Components and Utils
 
 const Newsletter = () => {
+  const { h1: Mone, h2: Mtwo, div: Mdiv } = motion;
+
+  const variants = prevX => ({
+    initial: { opacity: 0, x: prevX },
+    whileInView: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  });
+
   return (
     <section className={styles.wrapper}>
       <div className={`${styles.flex} ${styles.column} ${styles.rel}`}>
@@ -19,12 +27,19 @@ const Newsletter = () => {
         />
         <div className={`${styles.cover} ${styles.flex}`}>
           <div className={`${styles.flex} ${styles.column} ${styles.right}`}>
-            <h1 className={styles.heading}>NEWSLETTER</h1>
-            <h2 className={styles.subheading}>Stay tuned for updates</h2>
-            <div className={styles.body}>
+            <Mone {...variants(-100)} className={styles.heading}>
+              NEWSLETTER
+            </Mone>
+            <Mtwo {...variants(-80)} className={styles.subheading}>
+              Stay tuned for updates
+            </Mtwo>
+            <Mdiv {...variants(-100)} className={styles.body}>
               Sign up for our newsletter & get exclusive offers and invites!
-            </div>
-            <div className={`${styles.cover} ${styles.flex}`}>
+            </Mdiv>
+            <Mdiv
+              {...variants(-100)}
+              className={`${styles.cover} ${styles.flex}`}
+            >
               <input className={styles.input} placeholder="Email Address" />
               <button
                 className={styles.button}
@@ -32,7 +47,7 @@ const Newsletter = () => {
               >
                 SUBMIT
               </button>
-            </div>
+            </Mdiv>
           </div>
           <iframe
             id="map"
@@ -50,15 +65,23 @@ const Newsletter = () => {
         />
       </div>
       <div className={styles.red}>
-        <div className={styles.box} style={{ gridRow: "span 2" }}>
+        <Mdiv
+          {...variants(-100)}
+          className={styles.box}
+          style={{ gridRow: "span 2" }}
+        >
           <div className={styles.title}>LOCATION</div>
           <div className={styles.content}>
             <div>2620 Regatta Drive</div>
             <div>Las Vegas, NV</div>
             <div>89128</div>
           </div>
-        </div>
-        <div className={styles.box} style={{ gridRow: "span 2" }}>
+        </Mdiv>
+        <Mdiv
+          {...variants(0)}
+          className={styles.box}
+          style={{ gridRow: "span 2" }}
+        >
           <div className={styles.title}>HOURS</div>
           <div className={styles.content}>
             <div>Lunch 11:30AM-3:00PM Tuesday-Saturday</div>
@@ -68,21 +91,21 @@ const Newsletter = () => {
             </div>
             <div>Friday & Saturday 3:00PM -9:30PM</div>
           </div>
-        </div>
-        <div className={styles.box}>
+        </Mdiv>
+        <Mdiv {...variants(100)} className={styles.box}>
           <div className={styles.title}>FIND US ON...</div>
           <div className={styles.links}>
             {[
               ["https://www.instagram.com/americanalv", "instagram"],
               ["https://www.yelp.com/biz/americana-las-vegas-2", "yelp"],
             ].map(([href, icon], i) => (
-              <a href={href} target="_blank" key={i}>
-                <i class={`social-icon fa fa-${icon}`} />
+              <a href={href} target="_blank" rel="noreferrer" key={i}>
+                <i className={`social-icon fa fa-${icon}`} />
               </a>
             ))}
           </div>
-        </div>
-        <div className={styles.box}>
+        </Mdiv>
+        <Mdiv {...variants(100)} className={styles.box}>
           <div className={styles.title}>CONTACT US</div>
           <a
             className={styles.content}
@@ -91,10 +114,10 @@ const Newsletter = () => {
           >
             (702)-331-5565
           </a>
-        </div>
+        </Mdiv>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Newsletter
+export default Newsletter;

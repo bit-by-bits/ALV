@@ -1,8 +1,8 @@
 // React and Styles
-import * as React from "react"
+import * as React from "react";
 
 // Plugins and Modules
-import { Col, Row } from "antd"
+import { Col, Row } from "antd";
 
 // Components and Utils
 
@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
     >
       <Col style={{ textAlign: "center" }}>{children}</Col>
     </Row>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
