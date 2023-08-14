@@ -148,6 +148,10 @@
     height: 40vw;
     padding-bottom: 100px;
   }
+
+  .lefti {
+    padding-bottom: 0 !important;
+  }
 }
 
 @media screen and (min-width: 1400px) {

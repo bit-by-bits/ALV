@@ -1,5 +1,5 @@
 // React and Styles
-import React from "react";
+import React, { useState } from "react";
 import * as styles from "./styles.module.css";
 
 // Plugins and Modules
@@ -11,11 +11,25 @@ import { message } from "antd";
 
 const Newsletter = () => {
   const { h1: Mone, h2: Mtwo, div: Mdiv } = motion;
+  const [email, setEmail] = useState("");
 
   const variants = prevX => ({
     initial: { opacity: 0, x: prevX },
     whileInView: { opacity: 1, x: 0, transition: { duration: 0.6 } },
   });
+
+  const check = () => {
+    if (
+      email &&
+      email.length &&
+      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
+        email
+      )
+    ) {
+      message.success("Thank you for signing up!");
+      setEmail("");
+    } else message.error("Please enter a valid email address");
+  };
 
   return (
     <section className={styles.wrapper}>
@@ -40,11 +54,14 @@ const Newsletter = () => {
               {...variants(-100)}
               className={`${styles.cover} ${styles.flex}`}
             >
-              <input className={styles.input} placeholder="Email Address" />
-              <button
-                className={styles.button}
-                onClick={() => message.success("Thank you for signing up!")}
-              >
+              <input
+                value={email}
+                className={styles.input}
+                placeholder="Email Address"
+                onChange={e => setEmail(e.target.value)}
+                onKeyDown={e => e.key === "Enter" && check()}
+              />
+              <button className={styles.button} onClick={check}>
                 SUBMIT
               </button>
             </Mdiv>
@@ -55,7 +72,7 @@ const Newsletter = () => {
             width="600"
             height="450"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-115.27408301830292%2C36.20449730021135%2C-115.26177215576173%2C36.2099217191935&layer=mapnik"
-            className={styles.left}
+            className={`${styles.lefti} ${styles.left}`}
           />
         </div>
         <StaticImage
