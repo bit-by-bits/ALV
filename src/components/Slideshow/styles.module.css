@@ -77,6 +77,11 @@
   bottom: 40px;
   left: calc(100vw - 40px);
   width: max-content !important;
+  opacity: 0;
+}
+
+.big:hover .controls {
+  opacity: 1;
 }
 
 .control {

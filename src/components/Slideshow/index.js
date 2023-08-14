@@ -5,26 +5,38 @@ import * as styles from "./styles.module.css";
 // Plugins and Modules
 import { Carousel } from "antd";
 import { StaticImage } from "gatsby-plugin-image";
+import { motion } from "framer-motion";
 
 // Components and Utils
 
 const Slideshow = () => {
-  const [vis, setVis] = useState(false);
+  const { h1: Mone } = motion;
   const [auto, setAuto] = useState(true);
+
+  const variants = prevX => ({
+    initial: { opacity: 0, x: prevX },
+    whileInView: { opacity: 1, x: 0, transition: { duration: 0.6 } },
+  });
 
   return (
     <section className={styles.wrapper}>
       <div
-        className={`${styles.flex} ${styles.rel}`}
-        onMouseEnter={() => setVis(true)}
-        onMouseLeave={() => setVis(false)}
+        tabIndex={0}
+        role="button"
+        onKeyDown={event => setAuto(event.key === "Enter" ? !auto : auto)}
+        className={`${styles.flex} ${styles.rel} ${styles.big}`}
       >
         <StaticImage
           className={`${styles.top} ${styles.abs}`}
           src="../../images/white.svg"
           alt=""
         />
-        <Carousel className="ss" autoplaySpeed={4000} autoplay={auto}>
+        <Carousel
+          effect="fade"
+          className="ss"
+          autoplaySpeed={2000}
+          autoplay={auto}
+        >
           {[
             [
               "https://res.cloudinary.com/spothopper/image/fetch/f_auto,q_70,c_fit,h_864/http://static.spotapps.co/spots/2c/a177c9479648c99cc3cdc58d5cc96d/:original",
@@ -58,15 +70,18 @@ const Slideshow = () => {
                 className={`${styles.abs} ${styles.img}`}
               />
               <div className={`${styles.abs} ${styles.cover}`} />
-              <h1 className={styles.heading}>{item[1]}</h1>
+              <Mone {...variants(100)} className={styles.heading}>
+                {item[1]}
+              </Mone>
               <a href={item[2]} target="_blank" rel="noreferrer">
-                <button className={styles.button}>{item[3]}</button>
+                <button className={styles.button} role="link">
+                  {item[3]}
+                </button>
               </a>
             </div>
           ))}
         </Carousel>
         <button
-          style={{ opacity: vis ? 1 : 0 }}
           className={`${styles.abs} ${styles.controls}`}
           onClick={() => setAuto(!auto)}
         >

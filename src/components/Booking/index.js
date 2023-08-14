@@ -33,7 +33,7 @@ const Booking = () => {
         <a href="tel:7023315565">(702)-331-5565</a>
         <span>or book a table through Open Table reservations:</span>
       </Mone>
-      <Mdiv {...variants(100)} className={`${styles.choices} ${styles.flex}`}>
+      <Mdiv {...variants(40)} className={`${styles.choices} ${styles.flex}`}>
         <Select
           className={styles.choice}
           options={OPTIONS}

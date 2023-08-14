@@ -21,7 +21,7 @@ const Reviews = () => {
       <Mone {...variants(-100)} className={styles.heading}>
         REVIEWS
       </Mone>
-      <Carousel autoplaySpeed={4000} autoplay>
+      <Carousel autoplaySpeed={3000} autoplay>
         {[
           [
             "Nikole T:",
