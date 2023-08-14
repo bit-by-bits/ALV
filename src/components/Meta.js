@@ -129,10 +129,6 @@ const Meta = ({ title, description, pathname, children }) => {
         rel="stylesheet"
       />
       <link
-        href="css/custom.css?v1642674259&domain=americanalasvegas.com"
-        rel="stylesheet"
-      />
-      <link
         href="https://static.spotapps.co/web/americanalasvegas--com/lib/icons_font/css/social_icons.css"
         rel="stylesheet"
       />

@@ -40,8 +40,7 @@
 .container {
   overflow: hidden;
   position: relative;
-  cursor: url(https://cdn.custom-cursor.com/db/17667/32/web-media-chick-fil-a-pointer.png),
-    pointer;
+  cursor: url(../../images/pointer.png), pointer !important;
 }
 
 .shadow {

@@ -2,8 +2,7 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: url(https://cdn.custom-cursor.com/db/17668/32/web-media-chick-fil-a-cursor.png),
-    auto !important;
+  cursor: url(../images/cursor.png), auto !important;
 }
 
 html,
@@ -21,8 +20,7 @@ body {
 
 a,
 button {
-  cursor: url(https://cdn.custom-cursor.com/db/17667/32/web-media-chick-fil-a-pointer.png),
-    pointer !important;
+  cursor: url(../images/pointer.png), pointer !important;
 }
 
 ::-webkit-scrollbar {
@@ -40,6 +38,16 @@ button {
 
 ::-webkit-scrollbar-track {
   background-color: transparent;
+}
+
+::selection {
+  color: white !important;
+  background-color: #a6151f !important;
+}
+
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
 }
 
 /* SPINNER CSS */
@@ -61,6 +69,12 @@ button {
   height: auto !important;
   position: absolute !important;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 500px) {
+  .spinner img {
+    width: 60vw !important;
+  }
 }
 
 /* CAROUSEL CSS */
