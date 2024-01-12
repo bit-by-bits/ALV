@@ -1,5 +1,5 @@
 // React and Styles
-import React, { useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import "../styles/globals.css";
 import "../styles/variables.css";
 
