@@ -1,12 +1,10 @@
-// React and Styles
-
 // Plugins and Modules
 import { graphql, useStaticQuery } from "gatsby";
 
-// Components and Utils
-
 const useSiteMetaData = () => {
-  const data = useStaticQuery(graphql`
+  const {
+    site: { siteMetadata },
+  } = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -20,7 +18,7 @@ const useSiteMetaData = () => {
     }
   `);
 
-  return data.site.siteMetadata;
+  return siteMetadata;
 };
 
 export default useSiteMetaData;

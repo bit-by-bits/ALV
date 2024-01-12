@@ -12,22 +12,24 @@ const Layout = ({ nav, children }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
+    const loadContent = () => {
       window.scrollTo(0, 0);
       setTimeout(() => {
         setLoading(false);
       }, 499);
-    }, 2500 + Math.random() * 1000);
+    };
+
+    setTimeout(loadContent, 2500 + Math.random() * 1000);
   }, []);
 
-  const GIF =
+  const spinnerGIF =
     "https://i.pinimg.com/originals/c4/cb/9a/c4cb9abc7c69713e7e816e6a624ce7f8.gif";
 
   return (
     <Spin
       spinning={loading}
       className="spinner"
-      indicator={<img alt={""} src={GIF} />}
+      indicator={<img alt="" src={spinnerGIF} />}
     >
       <Header nav={nav} />
       {children}

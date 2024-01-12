@@ -1,32 +1,32 @@
 {
   "name": "americana-las-vegas",
-  "description": "Americana Restaurant - Las Vegas, NV",
   "version": "0.1.0",
+  "description": "Americana Restaurant - Las Vegas, NV",
   "author": "@bit-by-bits",
+  "license": "MIT",
+  "keywords": [
+    "gatsby"
+  ],
   "dependencies": {
-    "@ant-design/icons": "^5.1.4",
-    "@emotion/react": "^11.11.1",
-    "antd": "^5.6.4",
-    "framer-motion": "^10.12.18",
-    "gatsby": "^5.11.0",
-    "gatsby-plugin-image": "^3.11.0",
-    "gatsby-plugin-sharp": "^5.11.0",
-    "gatsby-plugin-sitemap": "^6.11.0",
-    "gatsby-source-filesystem": "^5.11.0",
-    "gatsby-transformer-sharp": "^5.11.0",
+    "@ant-design/icons": "^5.2.6",
+    "@emotion/react": "^11.11.3",
+    "antd": "^5.12.8",
+    "framer-motion": "^10.18.0",
+    "gatsby": "^5.13.1",
+    "gatsby-plugin-image": "^3.13.0",
+    "gatsby-plugin-sharp": "^5.13.0",
+    "gatsby-plugin-sitemap": "^6.13.0",
+    "gatsby-source-filesystem": "^5.13.0",
+    "gatsby-transformer-sharp": "^5.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "prettier": "^2.8.8"
+    "prettier": "^3.1.1"
   },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
   "scripts": {
     "build": "gatsby build",
-    "serve": "gatsby build && gatsby serve",
+    "serve": "npm run build && gatsby serve",
     "onlyserve": "gatsby serve",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",

@@ -27,7 +27,7 @@ const NotFoundPage = () => {
         <Title level={3} className="h2">
           Looks like you're lost!
         </Title>
-        <Title level={5}>the page you are looking for is not available</Title>
+        <Title level={5}>The page you are looking for is not available.</Title>
         <Link to="/">Go to Home</Link>
       </Col>
     </Layout>

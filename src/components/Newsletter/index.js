@@ -23,7 +23,7 @@ const Newsletter = () => {
       email &&
       email.length &&
       /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(
-        email
+        email,
       )
     ) {
       message.success("Thank you for signing up!");

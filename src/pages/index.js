@@ -6,32 +6,38 @@ import "../styles/variables.css";
 // Plugins and Modules
 
 // Components and Utils
-import Layout from "../layouts/index";
-import Meta from "../components/Meta";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Slideshow from "../components/Slideshow";
-import Booking from "../components/Booking";
-import Collage from "../components/Collage";
-import Reviews from "../components/Reviews";
-import Newsletter from "../components/Newsletter";
+const Layout = lazy(() => import("../layouts/index"));
+const Meta = lazy(() => import("../components/Meta"));
+const Hero = lazy(() => import("../components/Hero"));
+const About = lazy(() => import("../components/About"));
+const Slideshow = lazy(() => import("../components/Slideshow"));
+const Booking = lazy(() => import("../components/Booking"));
+const Collage = lazy(() => import("../components/Collage"));
+const Reviews = lazy(() => import("../components/Reviews"));
+const Newsletter = lazy(() => import("../components/Newsletter"));
 
 const IndexPage = () => {
   const [navWhite, setNavWhite] = useState(false);
 
   return (
-    <Layout nav={navWhite}>
-      <Hero setNav={setNavWhite} />
-      <About />
-      <Slideshow />
-      <Booking />
-      <Collage />
-      <Reviews />
-      <Newsletter />
-    </Layout>
+    <Suspense fallback={<div>Loading...</div>}>
+      <Layout nav={navWhite}>
+        <Hero setNav={setNavWhite} />
+        <About />
+        <Slideshow />
+        <Booking />
+        <Collage />
+        <Reviews />
+        <Newsletter />
+      </Layout>
+    </Suspense>
   );
 };
 
-export const Head = () => <Meta />;
+export const Head = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Meta />
+  </Suspense>
+);
 
 export default IndexPage;

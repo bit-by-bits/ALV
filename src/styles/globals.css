@@ -1,13 +1,21 @@
+:root {
+  --scrollbar-thumb-color: #a6151f;
+  --scrollbar-thumb-hover-color: red;
+  --selection-text-color: white;
+  --selection-bg-color: #a6151f;
+  --spinner-bg-color: white;
+  --carousel-dot-border-color: #a31521;
+  --carousel-dot-bg-color: white;
+  --ss-dot-border-color: #fff;
+  --ss-dot-bg-color: rgba(50, 50, 50, 0.1);
+  --ss-active-dot-bg-color: #fff;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Parisienne&display=swap");
 
 html {
   scroll-behavior: smooth;
   cursor: url(../images/cursor.png), auto !important;
-}
-
-html,
-section,
-body {
   overflow-x: hidden;
   max-width: 100vw;
 }
@@ -18,8 +26,7 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-a,
-button {
+a, button {
   cursor: url(../images/pointer.png), pointer !important;
 }
 
@@ -29,11 +36,11 @@ button {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 6px;
-  background-color: #a6151f;
+  background-color: var(--scrollbar-thumb-color);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: red;
+  background-color: var(--scrollbar-thumb-hover-color);
 }
 
 ::-webkit-scrollbar-track {
@@ -41,8 +48,8 @@ button {
 }
 
 ::selection {
-  color: white !important;
-  background-color: #a6151f !important;
+  color: var(--selection-text-color) !important;
+  background-color: var(--selection-bg-color) !important;
 }
 
 img {
@@ -51,24 +58,21 @@ img {
 }
 
 /* SPINNER CSS */
-
 .spinner {
-  left: 0;
-  top: 0;
-  z-index: 101;
   position: fixed !important;
+  z-index: 101;
   width: 100vw !important;
   height: 100vh !important;
   max-height: 100vh !important;
-  background-color: white;
+  background-color: var(--spinner-bg-color);
 }
 
 .spinner img {
+  position: absolute !important;
   left: 50%;
   top: 50%;
   width: 30vw !important;
   height: auto !important;
-  position: absolute !important;
   transform: translate(-50%, -50%);
 }
 
@@ -79,17 +83,16 @@ img {
 }
 
 /* CAROUSEL CSS */
-
 .ant-carousel {
   width: 100%;
 }
 
 .ant-carousel .slick-dots li button {
   background-color: transparent;
-  border: 1px solid #a31521;
+  border: 1px solid var(--carousel-dot-border-color);
   opacity: 1;
   outline: 0;
-  background: white;
+  background: var(--carousel-dot-bg-color);
   width: 15px !important;
   height: 15px !important;
   margin: 5px 15px;
@@ -106,24 +109,23 @@ img {
 
 .ss .slick-dots li button {
   background-color: transparent;
-  border: 1px solid #fff;
+  border: 1px solid var(--ss-dot-border-color);
   width: 20px !important;
   height: 20px !important;
-  background: rgba(50, 50, 50, 0.1);
+  background: var(--ss-dot-bg-color);
   transition: all 0.2s ease-in-out;
   transform: translateY(-40px);
 }
 
 .ant-carousel .slick-dots li.slick-active button {
-  background-color: #a31521;
+  background-color: var(--carousel-dot-border-color);
 }
 
 .ss .slick-dots li.slick-active button {
-  background-color: #fff;
+  background-color: var(--ss-active-dot-bg-color);
 }
 
 /* IMAGE CSS */
-
 .ant-image .ant-image-mask {
   display: none;
 }
@@ -133,7 +135,6 @@ img {
 }
 
 /* SELECT CSS */
-
 .ant-select-selector {
   height: 100% !important;
   border-radius: 0 !important;

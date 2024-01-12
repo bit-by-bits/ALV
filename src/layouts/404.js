@@ -1,5 +1,5 @@
 // React and Styles
-import * as React from "react";
+import React from "react";
 
 // Plugins and Modules
 import { Col, Row } from "antd";

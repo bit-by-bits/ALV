@@ -1,10 +1,5 @@
-// React and Styles
 import React from "react";
-
-// Plugins and Modules
 import { Script } from "gatsby";
-
-// Components and Utils
 import useSiteMetadata from "../hooks/useSiteMetaData";
 
 const Meta = ({ title, description, pathname, children }) => {
@@ -20,122 +15,67 @@ const Meta = ({ title, description, pathname, children }) => {
     title: title || defaultTitle,
     description: description || defaultDescription,
     image: `${url}${image}`,
-    url: `${url}${pathname || ``}`,
+    url: `${url}${pathname || ''}`,
     siteUrl: siteUrl,
   };
+
+  const iconLinks = [
+    { rel: "shortcut icon", href: "favicon-32x32.png", type: "image/x-icon" },
+    { rel: "apple-touch-icon", href: "apple-touch-icon.png", sizes: "180x180" },
+    { rel: "icon", href: "favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    { rel: "icon", href: "favicon-16x16.png", sizes: "16x16", type: "image/png" },
+  ];
+
+  const styleLinks = [
+    "bootstrap/css/bootstrap.min.css",
+    "gallery/gallery.css",
+    "fancybox/source/jquery.fancybox.css",
+    "fancybox/source/helpers/jquery.fancybox-thumbs.css",
+    "uikit/css/uikit.docs.min.css",
+    "uikit/css/slidenav.css",
+    "font-awesome-4.7.0/css/font-awesome.min.css",
+    "hover_css/css/hover-min.css",
+    "owlcarousel/owl.carousel.min.css",
+    "owlcarousel/owl.theme.default.min.css",
+    "leaflet@1.3.1/dist/leaflet.css",
+    "css/style.css?version2",
+    "css/bottom_navigation_v1.css?v1640693125",
+    "icons_font/css/social_icons.css",
+  ];
+
+  const renderLinks = (links, baseUrl) =>
+    links.map((link, index) => (
+      <link key={index} href={`https://static.spotapps.co/web/americanalasvegas--com/lib/${baseUrl}/${link}`} rel={link.rel} sizes={link.sizes} type={link.type} />
+    ));
 
   return (
     <>
       <meta charSet="utf-8" />
-      <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-      <meta content="width=device-width, initial-scale=1" name="viewport" />
+      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      <meta content={SEO.title} name="title" />
-      <meta content={SEO.description} name="description" />
+      <meta name="title" content={SEO.title} />
+      <meta name="description" content={SEO.description} />
 
-      <meta content={SEO.description} property="og:description" />
-      <meta content="website" property="og:type" />
-      <meta content={SEO.url} property="og:url" />
-      <meta content={SEO.title} property="og:title" />
-      <meta content={SEO.image} property="og:image" />
+      <meta property="og:description" content={SEO.description} />
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content={SEO.url} />
+      <meta property="og:title" content={SEO.title} />
+      <meta property="og:image" content={SEO.image} />
 
       <title>{SEO.title}</title>
-      <link
-        rel="shortcut icon"
-        href="https://static.spotapps.co/web/americanalasvegas--com/favicon-32x32.png"
-        type="image/x-icon"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/apple-touch-icon.png"
-        rel="apple-touch-icon"
-        sizes="180x180"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/favicon-32x32.png"
-        rel="icon"
-        sizes="32x32"
-        type="image/png"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/favicon-16x16.png"
-        rel="icon"
-        sizes="16x16"
-        type="image/png"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/site.webmanifest"
-        rel="manifest"
-      />
-      <link
-        color="#002e48"
-        href="https://static.spotapps.co/web/americanalasvegas--com/safari-pinned-tab.svg"
-        rel="mask-icon"
-      />
-      <meta content="#ffffff" name="msapplication-TileColor" />
-      <meta content="#ffffff" name="theme-color" />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/bootstrap/css/bootstrap.min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/gallery/gallery.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/fancybox/source/jquery.fancybox.css"
-        media="screen"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/fancybox/source/helpers/jquery.fancybox-thumbs.css"
-        rel="stylesheet"
-        type="text/css"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/uikit/css/uikit.docs.min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/uikit/css/slidenav.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/font-awesome-4.7.0/css/font-awesome.min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/hover_css/css/hover-min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/owlcarousel/owl.carousel.min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/owlcarousel/owl.theme.default.min.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/css/style.css?version2"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/css/bottom_navigation_v1.css?v1640693125"
-        rel="stylesheet"
-      />
-      <link
-        href="https://static.spotapps.co/web/americanalasvegas--com/lib/icons_font/css/social_icons.css"
-        rel="stylesheet"
-      />
-      <Script
-        src="https://static.spotapps.co/websites/lib/lazysizes/lazysizes.min.js"
-        async=""
-      />
+
+      {renderLinks(iconLinks, "")}
+
+      <link rel="manifest" href="site.webmanifest" />
+      <link rel="mask-icon" color="#002e48" href="safari-pinned-tab.svg" />
+
+      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="theme-color" content="#ffffff" />
+
+      {renderLinks(styleLinks, "lib")}
+      
+      <Script src="lazysizes/lazysizes.min.js" async="" />
 
       {/* Other Tags */}
       {children}
